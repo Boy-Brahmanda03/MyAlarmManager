@@ -44,6 +44,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, TimePickerFragme
         binding?.btnRepeatingTime?.setOnClickListener(this)
         binding?.btnSetRepeatAlarm?.setOnClickListener(this)
 
+        binding?.btnCancelRepeat?.setOnClickListener(this)
+
         alarmReceiver = AlarmReceiver()
     }
 
@@ -90,6 +92,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, TimePickerFragme
                     repeatMessage
                 )
 
+            }
+
+            R.id.btn_cancel_repeat -> {
+                alarmReceiver.cancelAlarm(this, AlarmReceiver.TYPE_REPEATING)
             }
         }
     }
